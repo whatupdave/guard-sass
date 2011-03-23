@@ -39,9 +39,9 @@ module Guard
     # @return [String] path to file where output should be written
     #
     def get_output(file)
-      folder = File.join File.dirname(file), '..', @options[:output]
-      FileUtils.mkdir_p folder
-      r = File.join folder, File.basename(file).split('.')[0]
+      directory = File.expand_path @options[:output]
+      FileUtils.mkdir_p directory
+      r = File.join directory, File.basename(file).split('.')[0]
       r << '.css'
     end
     
